@@ -7,10 +7,12 @@ services:
       - db_data:/var/lib/mysql
     restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: wordpress
-      MYSQL_USER: wordpress
-      MYSQL_PASSWORD: password
+      env_file:
+        - ./database.env
+#      MYSQL_ROOT_PASSWORD: password
+#      MYSQL_DATABASE: wordpress
+#      MYSQL_USER: wordpress
+#      MYSQL_PASSWORD: password
     container_name: wordpress_db
 
   wordpress:
