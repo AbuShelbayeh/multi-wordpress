@@ -23,13 +23,11 @@ services:
       - 80
     restart: unless-stopped
     environment:
-      env_file:
-        - ./wordpress.env
-#      VIRTUAL_HOST: domain.com
-#      LETSENCRYPT_HOST: domain.com
-#      WORDPRESS_DB_HOST: db_node_domain:3306
-#      WORDPRESS_DB_USER: wordpress
-#      WORDPRESS_DB_PASSWORD: password
+      VIRTUAL_HOST: domain.com
+      LETSENCRYPT_HOST: domain.com
+      WORDPRESS_DB_HOST: db_node_domain:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: password
     volumes:
       - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
     container_name: wordpress
